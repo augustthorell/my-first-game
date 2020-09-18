@@ -34,15 +34,9 @@ h1 {
     height: 80px;
 }
 .image:hover { 
-    background-color: red; 
-    border-radius: 60px;
+    transform: scale(1.3);
+}
 
-}
-.image1:hover { 
-    background-color: red; 
-    border-radius: 60px;
-    padding-left: 30px;
-}
 
 .wrapper {
     background-color: #fff;
@@ -54,7 +48,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     padding: 10px;
 }
-.result {
+.choice {
     height: 100%;
     width: 100%;
     display: flex;
@@ -66,4 +60,42 @@ h1 {
 img {
     width: 200px;
     height: 200px;
+}
+.result {
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+}
+
+/* Animations */
+.thumb {
+    display: none;
+}
+.left-result {
+ 
+    animation: turn-left 5s linear;
+}
+@keyframes turn-left {
+    0% {
+        transform: rotate(0deg);
+        opacity: 100%;
+    } 50% {
+        transform: rotate(-90deg);
+        opacity: 100%;
+    } 100% {
+        transform: rotate(-90deg);
+        opacity: 0%;
+
+    }
+}
+
+.right-result {
+    animation: turn-right 3s;
+}
+@keyframes turn-right {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(90deg);
+    }
 }
