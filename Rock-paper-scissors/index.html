@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>August Game site</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="app.js"></script>
+    </head>
+
+    <body>
+        <h1>Rock Paper Scissors</h1>
+        <h1>Click rock, paper or scissor to play</h1>
+
+        <div class="container">
+            
+            <div class="box rock" onclick="rock()">
+                <img src="images/rock.svg" alt="rock">
+            </div>
+
+            <div class="box paper" onclick="paper()">
+                <img src="images/paper.svg" alt="paper">
+            </div>
+
+            <div class="box scissor" onclick="scissor()">
+                <img src="images/scissor.svg" alt="scissor">
+            </div>
+
+        </div>
+
+        <div class="result">
+
+            <div class="box1 user">
+                <div id="userinput">Users input</div>
+            </div>
+
+            <div class="box1 computer">
+                    <div id="computer"></div>
+            </div>
+
+
+        </div>
+        <button onclick="myFunction()">Click to play</button>
+    </body>
+
+</html>
