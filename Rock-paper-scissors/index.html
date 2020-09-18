@@ -13,33 +13,33 @@
 
         <div class="container">
             
-            <div class="box rock" onclick="rock()">
-                <img src="images/rock.svg" alt="rock">
+            <div class="box box1" id="rock" onclick="rock()">
+                <img src="images/rock.svg" class="image1" alt="rock">
             </div>
 
-            <div class="box paper" onclick="paper()">
-                <img src="images/paper.svg" alt="paper">
+            <div class="box box2" id="paper" onclick="paper()">
+                <img src="images/paper.svg" class="image" alt="paper">
             </div>
 
-            <div class="box scissor" onclick="scissor()">
-                <img src="images/scissor.svg" alt="scissor">
+            <div class="box box3" id="scissor" onclick="scissor()">
+                <img src="images/scissor.svg" class="image" alt="scissor">
             </div>
 
         </div>
 
-        <div class="result">
+        <div class="wrapper">
 
-            <div class="box1 user">
-                <div id="userinput">Users input</div>
+            <div class="result user">
+                <div id="userInput"></div>
             </div>
 
-            <div class="box1 computer">
+            <div class="result computer">
                     <div id="computer"></div>
             </div>
 
 
         </div>
-        <button onclick="myFunction()">Click to play</button>
+        
     </body>
 
 </html>

@@ -1,30 +1,46 @@
-// Generate a random number for the computer //
-function myFunction() {
-    let randomer = Math.floor(Math.random() * 3);
+// Generate a random number and choosing rock, paper, scissor for the computer //
+function random() {
+    let randomNumber = Math.floor(Math.random() * 3);
     let computer = document.getElementById('computer');
 
-    if (randomer == 0) {
+    if (randomNumber == 0) {
         computer.innerHTML = '<img src=images/rock.svg>';
-    } else if (randomer == 1) {
+
+    } else if (randomNumber == 1) {
         computer.innerHTML = '<img src=images/scissor.svg>';
     } else {
         computer.innerHTML = '<img src=images/paper.svg>';
     }
+    
 }
-let userInput = document.getElementById('userInput')
+
+
+// Changes the image depending on the input from the user //
 
 function rock() {
-    userInput.innerHTML = '<img src=images/rock.svg>';
-    myFunction();
+    document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
+    random();
 }
 function paper() {
-    userInput.innerHTML = '<img src=images/paper.svg>';
-    myFunction();
+    document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
+    random();
 }
 function scissor() {
-    userInput.innerHTML = '<img src=images/scissor.svg>';
-    myFunction();
+    document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
+    random();
 }
 
 
+// Starts the game and calculate who is the winner //
 
+function init() {
+    // Store the values from the computer //
+    
+    // Store the values from the User //
+
+    // Initialize the other functions //
+
+    // Calculate who won //
+
+    // OPTIONAL: Calculate the scores //
+}
