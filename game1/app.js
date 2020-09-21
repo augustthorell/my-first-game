@@ -12,10 +12,10 @@ function random(a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 2) {
             result.innerHTML = "You Lose";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('righty').className = "right-result";
         } else if (a == 1) {
             result.innerHTML = "You Win";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('lefty').className = "left-result";
         }
     } else if (randomNumber == paper) {
         computer.innerHTML = '<img src=images/paper.svg>';
@@ -23,10 +23,10 @@ function random(a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 0) {
             result.innerHTML = "You Lose";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('righty').className = "right-result";
         } else if (a == 2) {
             result.innerHTML = "You Win";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('lefty').className = "left-result";
         }
     } else {
         computer.innerHTML = '<img src=images/scissor.svg>';
@@ -34,39 +34,55 @@ function random(a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 1) {
             result.innerHTML = "You Lose";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('righty').className = "right-result";
         } else if (a == 0) {
             result.innerHTML = "You Win";
-            document.querySelector('.thumb').style.display = "block";
+            document.getElementById('lefty').className = "left-result";
         }
     }
+}
+
+function computer(b) {
+    let randomNumber = Math.floor(Math.random() * 3);
+    if (randomNumber == 0) {
+        computer.innerHTML = '<img src=images/rock.svg>';
+        init(0);
+    } else if (randomNumber == 1) {
+        computer.innerHTML = '<img src=images/paper.svg>';
+        init(1);
+    } else {
+        computer.innerHTML = '<img src=images/scissor.svg>';
+        init(2);
+    }
+    
 }
 
 
 // Changes the image depending on the input from the user //
 
-function rock() {
-    document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
-    random(0);
-}
-function paper() {
-    document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
-    random(1);
-}
-function scissor() {
-    document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
-    random(2);
+function user(a) {
+    if (a == 0) {
+        document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
+        computer(0);
+    } else if (a == 1) {
+        document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
+        computer(1);
+    } else if (a == 2) {
+        document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
+        computer(2);
+    }
 }
 
 
 
 // Starts the game and calculate who is the winner //
 
-function init() {
-    // Store the values from the computer //
-    
-    // Store the values from the User //
+function init(a, b) {
 
+    // Store the values from the computer //
+    user(a);
+    // Store the values from the User //
+    computer(b);
     // Initialize the other functions //
 
     // Calculate who won //

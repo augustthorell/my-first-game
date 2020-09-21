@@ -9,7 +9,6 @@
     grid-template-columns: 25% 75%;
     grid-template-areas: "aside main";
 }
-
 main {
     grid-area: main;
     background-color: grey;
@@ -18,14 +17,13 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px;
 }
 .play-game {
     width: 100px;
     height: 100px;
     border-radius: 50px;  
 }
-
-
 aside {
     grid-area: aside;
     background-color: blue;
@@ -43,19 +41,21 @@ aside {
             "game3"
             "game4";
 }
-
 .game {
     background-color: black;
     color: #fff;
     height: 150px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 .game:hover {
     box-shadow: 0px 0px 20px 5px #000;
 }
 .game1 {
     grid-area: game1;
-    padding: 10px;
 }
 .game2 {
     grid-area: game2

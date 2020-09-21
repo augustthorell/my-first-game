@@ -68,34 +68,25 @@ img {
 }
 
 /* Animations */
-.thumb {
-    display: none;
-}
+
 .left-result {
- 
-    animation: turn-left 5s linear;
+    animation: turn-left 1s linear;
 }
 @keyframes turn-left {
-    0% {
+    from {
         transform: rotate(0deg);
-        opacity: 100%;
-    } 50% {
+    } to {
         transform: rotate(-90deg);
-        opacity: 100%;
-    } 100% {
-        transform: rotate(-90deg);
-        opacity: 0%;
 
-    }
+    } 
 }
-
 .right-result {
-    animation: turn-right 3s;
+    animation: turn-right 1s;
 }
 @keyframes turn-right {
     from {
         transform: rotate(0deg);
     } to {
-        transform: rotate(90deg);
+        transform: rotate(-90deg);
     }
 }
