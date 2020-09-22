@@ -39,6 +39,7 @@ function user(a) {
 // Starts the game and //
 
 function init(a) {
+
     // Get's the value from the user
     user(a);
 
@@ -78,9 +79,10 @@ function calc() {
     }
 }
 
+// Depending on if you won or not, the functions will send you to different places //
 function reload() {
     window.location.reload();
 }
 function moveOn() {
-    window.location.href=index.html
+    window.location.href= '../game2/index.html';
 }
