@@ -33,11 +33,12 @@ h1 {
     width:100px;
     height: 80px;
 }
+.box .box4 {
+    width: 100%;
+}
 .image:hover { 
     transform: scale(1.3);
 }
-
-
 .wrapper {
     background-color: #fff;
     width: 100%;
@@ -48,7 +49,7 @@ h1 {
     grid-template-columns: 1fr 1fr;
     padding: 10px;
 }
-.choice {
+.score {
     height: 100%;
     width: 100%;
     display: flex;
@@ -66,27 +67,11 @@ img {
     color: #000;
     text-align: center;
 }
+#userInput {
+    transform: rotate(90deg);
+}
+#computer {
+    transform: rotate(-90deg) scaleX(-1);
+}
 
-/* Animations */
 
-.left-result {
-    animation: turn-left 1s linear;
-}
-@keyframes turn-left {
-    from {
-        transform: rotate(0deg);
-    } to {
-        transform: rotate(-90deg);
-
-    } 
-}
-.right-result {
-    animation: turn-right 1s;
-}
-@keyframes turn-right {
-    from {
-        transform: rotate(0deg);
-    } to {
-        transform: rotate(-90deg);
-    }
-}

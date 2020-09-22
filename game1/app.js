@@ -11,11 +11,9 @@ function random(a) {
         if (randomNumber == a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 2) {
-            result.innerHTML = "You Lose";
-            document.getElementById('righty').className = "right-result";
+            result.innerHTML = "You Lose";            
         } else if (a == 1) {
             result.innerHTML = "You Win";
-            document.getElementById('lefty').className = "left-result";
         }
     } else if (randomNumber == paper) {
         computer.innerHTML = '<img src=images/paper.svg>';
@@ -23,10 +21,8 @@ function random(a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 0) {
             result.innerHTML = "You Lose";
-            document.getElementById('righty').className = "right-result";
         } else if (a == 2) {
             result.innerHTML = "You Win";
-            document.getElementById('lefty').className = "left-result";
         }
     } else {
         computer.innerHTML = '<img src=images/scissor.svg>';
@@ -34,42 +30,42 @@ function random(a) {
             result.innerHTML = "It's a Draw";
         } else if (a == 1) {
             result.innerHTML = "You Lose";
-            document.getElementById('righty').className = "right-result";
         } else if (a == 0) {
             result.innerHTML = "You Win";
-            document.getElementById('lefty').className = "left-result";
         }
     }
 }
 
+// Changes the image for the computer //
+
 function computer(b) {
     let randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber == 0) {
-        computer.innerHTML = '<img src=images/rock.svg>';
-        init(0);
-    } else if (randomNumber == 1) {
-        computer.innerHTML = '<img src=images/paper.svg>';
-        init(1);
-    } else {
-        computer.innerHTML = '<img src=images/scissor.svg>';
-        init(2);
-    }
-    
-}
+    let computer = document.getElementById('computer');
 
+    if (randomNumber === 0) {
+        computer.innerHTML = '<img src=images/rock.svg>';
+        calc(0);
+    } else if (randomNumber === 1) {
+        computer.innerHTML = '<img src=images/paper.svg>';
+        calc(1);
+    } else if (randomNumber === 2) {
+        computer.innerHTML = '<img src=images/scissor.svg>';
+        calc(2);
+    }
+}
 
 // Changes the image depending on the input from the user //
 
 function user(a) {
     if (a == 0) {
         document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
-        computer(0);
+        calc(0);
     } else if (a == 1) {
         document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
-        computer(1);
+        calc(1);
     } else if (a == 2) {
         document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
-        computer(2);
+        calc(2);
     }
 }
 
@@ -77,12 +73,12 @@ function user(a) {
 
 // Starts the game and calculate who is the winner //
 
-function init(a, b) {
+function init(a) {
 
     // Store the values from the computer //
     user(a);
     // Store the values from the User //
-    computer(b);
+    computer();
     // Initialize the other functions //
 
     // Calculate who won //
@@ -90,3 +86,18 @@ function init(a, b) {
     // OPTIONAL: Calculate the scores //
 }
 
+function calc(a, b) {
+    let result = document.getElementById('show-result');
+    if (a == b) {
+        result.innerHTML = "It's a Draw";
+        console.log('test');
+    } else if (a == 1 && b == 2) { 
+        result.innerHTML = "You Lose";
+    } else if (a == 2 && b == 1) {
+         result.innerHTML = "You Win";
+    }
+}
+
+rock = 0
+paper = 1
+scissor = 2
