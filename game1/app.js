@@ -1,56 +1,23 @@
-// Generate a random number and choosing rock, paper, scissor for the computer //
-function random(a) {
-    let randomNumber = Math.floor(Math.random() * 3);
-    let computer = document.getElementById('computer');
-    let result = document.getElementById('show-result');
-    let rock = 0;
-    let paper = 1;
+// Stores the values from the computer and the user in an array //
 
-    if (randomNumber == rock) {
-        computer.innerHTML = '<img src=images/rock.svg>';
-        if (randomNumber == a) {
-            result.innerHTML = "It's a Draw";
-        } else if (a == 2) {
-            result.innerHTML = "You Lose";            
-        } else if (a == 1) {
-            result.innerHTML = "You Win";
-        }
-    } else if (randomNumber == paper) {
-        computer.innerHTML = '<img src=images/paper.svg>';
-        if (randomNumber == a) {
-            result.innerHTML = "It's a Draw";
-        } else if (a == 0) {
-            result.innerHTML = "You Lose";
-        } else if (a == 2) {
-            result.innerHTML = "You Win";
-        }
-    } else {
-        computer.innerHTML = '<img src=images/scissor.svg>';
-        if (randomNumber == a) {
-            result.innerHTML = "It's a Draw";
-        } else if (a == 1) {
-            result.innerHTML = "You Lose";
-        } else if (a == 0) {
-            result.innerHTML = "You Win";
-        }
-    }
-}
+let userData = [];
+let computerData = [];
+let userScore = [];
+let computerScore = [];
 
 // Changes the image for the computer //
-
-function computer(b) {
+function computer() {
     let randomNumber = Math.floor(Math.random() * 3);
     let computer = document.getElementById('computer');
-
     if (randomNumber === 0) {
         computer.innerHTML = '<img src=images/rock.svg>';
-        calc(0);
+        computerData.unshift(0);
     } else if (randomNumber === 1) {
         computer.innerHTML = '<img src=images/paper.svg>';
-        calc(1);
+        computerData.unshift(1);
     } else if (randomNumber === 2) {
         computer.innerHTML = '<img src=images/scissor.svg>';
-        calc(2);
+        computerData.unshift(2);
     }
 }
 
@@ -59,45 +26,61 @@ function computer(b) {
 function user(a) {
     if (a == 0) {
         document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
-        calc(0);
+        userData.unshift(0);
     } else if (a == 1) {
         document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
-        calc(1);
+        userData.unshift(1);
     } else if (a == 2) {
         document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
-        calc(2);
+        userData.unshift(2);
     }
 }
 
-
-
-// Starts the game and calculate who is the winner //
+// Starts the game and //
 
 function init(a) {
-
-    // Store the values from the computer //
+    // Get's the value from the user
     user(a);
-    // Store the values from the User //
+
+    // Get's the value from the computer //
     computer();
-    // Initialize the other functions //
 
-    // Calculate who won //
-
-    // OPTIONAL: Calculate the scores //
+    // Calculate who won between the computer and the user //
+    calc();
 }
 
-function calc(a, b) {
+// Calculates who won between the computer and the user //
+
+function calc() {
+    let user = userData[0];
+    let computer = computerData[0];
     let result = document.getElementById('show-result');
-    if (a == b) {
+    let displayUserScore = document.getElementById('userScore');
+    let displayComputerScore = document.getElementById('computerScore');
+   
+    if (user == computer) {
         result.innerHTML = "It's a Draw";
-        console.log('test');
-    } else if (a == 1 && b == 2) { 
-        result.innerHTML = "You Lose";
-    } else if (a == 2 && b == 1) {
-         result.innerHTML = "You Win";
+    } else if ((user == 0 && computer == 1) || (user == 1 && computer == 2) || (user == 2 && computer == 0)) { 
+        result.innerHTML = "Point for the computer";
+        computerScore += [1];
+        displayComputerScore.innerHTML = 'Computer score : ' + computerScore.length;
+    } else if ((user == 1 && computer == 0) || (user == 2 && computer == 1) || (user == 0 && computer == 2)) {
+         result.innerHTML = "Point for you";
+         userScore.push(1);
+         displayUserScore.innerHTML = 'Your score : ' + userScore.length;
+    }
+    if (userScore.length === 5) {
+        document.querySelector('main').style.display = 'none';
+        document.getElementById('gameWon').style.display = 'block';
+    } else if (computerScore.length === 5) {
+        document.querySelector('main').style.display = 'none';
+        document.getElementById('gameLost').style.display = 'block';
     }
 }
 
-rock = 0
-paper = 1
-scissor = 2
+function reload() {
+    window.location.reload();
+}
+function moveOn() {
+    window.location.href=index.html
+}

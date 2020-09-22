@@ -10,39 +10,42 @@
     <body>
         <h1>Rock Paper Scissors</h1>
         <h1>Click rock, paper or scissor to play</h1>
+        <main class="main">
+            <div class="container">
+                
+                <button class="box box1" id="rock" onclick="init(0)">
+                    <img src="images/rock.svg" class="image" alt="rock">
+                </button>
 
-        <div class="container">
+                <button class="box box2" id="paper" onclick="init(1)">
+                    <img src="images/paper.svg" class="image" alt="paper">
+                </button>
+
+                <button class="box box3" id="scissor" onclick="init(2)">
+                    <img src="images/scissor.svg" class="image" alt="scissor">
+                </button>
+
+            </div>
+
+            <div class="result">
+                <h2 id="show-result"></h2>
+            </div>
+
             
-            <button class="box box1" id="rock" onclick="init(0)">
-                <img src="images/rock.svg" class="image" alt="rock">
-            </button>
+            <div class="wrapper">
 
-            <button class="box box2" id="paper" onclick="init(1)">
-                <img src="images/paper.svg" class="image" alt="paper">
-            </button>
+                <div id="userInput" class="score"> </div>
 
-            <button class="box box3" id="scissor" onclick="init(2)">
-                <img src="images/scissor.svg" class="image" alt="scissor">
-            </button>
+                <div id="computer" class="score"></div> 
+    
+                <h2 id="userScore" class="score">Your score: </h2>
+                <h2 id="computerScore" class="score">Computer score: </h2>
 
-        </div>
-
-        <div class="result">
-            <h2 id="show-result"></h2>
-        </div>
-
-        
-        <div class="wrapper">
-
-            <div id="userInput" class="score"> </div>
-
-            <div id="computer" class="score"></div> 
- 
-            <h2 id="userScore" class="score">Your score: </h2>
-            <h2 id="computerScore" class="score">Computer score: </h2>
-
-        </div>
-        
+            </div>
+            
+        </main>
+        <button id="gameLost" class="btn" onclick="reload()">You lost the game, click here to try again</button>
+            <button id="gameWon" class="btn" onclick="moveOn()">You won the game! (yay) Click here to move on</button>
     </body>
 
 </html>
