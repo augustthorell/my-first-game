@@ -3,66 +3,101 @@
     margin: 0;
     box-sizing: border-box;
 }
-.container {
-    display: grid;
+body {
+    background-color: #000;
     height: 100vh;
-    grid-template-columns: 25% 75%;
-    grid-template-areas: "aside main";
-}
-main {
-    grid-area: main;
-    background-color: grey;
-    grid-column-start: 2;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 30px;
 }
-.play-game {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;  
-}
-aside {
-    grid-area: aside;
-    background-color: blue;
-    grid-column-start: 1;
-    height: 100%;    
-}
-.nav {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 10px;
-    grid-template-areas: 
-            "game1"
-            "game2"
-            "game3"
-            "game4";
-}
-.game {
-    background-color: black;
-    color: #fff;
-    height: 150px;
+
+#start-container {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-decoration: none;
 }
-.game:hover {
-    box-shadow: 0px 0px 20px 5px #000;
+h1 {
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
 }
-.game1 {
-    grid-area: game1;
+.btn {
+    width: 400px;
+    height: 400px; 
+    animation: rotate 4s linear infinite;  
 }
-.game2 {
-    grid-area: game2
+.btn:hover {
+    cursor: pointer;
 }
-.game3 {
-    grid-area: game3
+.btn:hover #start-game {
+    fill: #000;
 }
-.game4 {
-    grid-area: game4
+.btn:hover #polygon-1 {
+    fill: #91A436;
+}
+.btn:hover #polygon-2 {
+    fill: #882D61;
+}
+
+#polygon-2 {
+    animation: rotate2 10s infinite linear;
+    transform-origin: center;
+}
+@keyframes rotate2 {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+#polygon-1 {
+    animation: rotate1 10s infinite linear;
+    transform-origin: center;
+}
+@keyframes rotate1 {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(-360deg);
+    }
+}
+#main {
+    position:absolute;
+    top: 70px;
+    left: 5%;
+    display: none;
+    background-color: #fff;
+    width: 90%;
+    height: 700px;
+    color: #fff;
+    animation: initiate 2s forwards;
+
+}
+
+@keyframes initiate {
+    0% { 
+        transform: scale(0);
+        opacity: 0;
+    }
+    30% { 
+        transform: scale(0);
+        opacity: 0;
+    } 
+    100% { 
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.end {
+    animation: end 2s forwards;
+}
+@keyframes end {
+    from { 
+        transform: scale(1);
+        opacity: 1;
+    }
+    to { 
+        transform: scale(0);
+        opacity: 0;
+    }
 }
