@@ -5,40 +5,36 @@
 }
 
 body {
+    height: 100vh; 
     background-color: #000;
-    height: 100vh;
-    padding: 30px;
-}
-
-h1 {
-    color: #fff;
-    text-align: center;
-}
-
-.container {
-    background-color: #fff;
-    width: 100%;
-    height: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto;
-    grid-gap: 20px;
-    padding: 20px;
-}
-
-.box {
-    height: 100%;
-    width: 100%;
-    min-width: 200px;
-    background-color: #000;
-    color: #fff;
     display: flex;
-    align-items: center;
-    justify-content: center;
-
 }
 
-.box:hover {
-    box-shadow: 5px 5px 10px 10px #000;
+.memory-game {
+    width: 640px;
+    height: 640px;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
 }
 
+.memory-c {
+    position: relative;
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    margin: 5px;
+    transform: scale(1);
+}
+
+.memory-c:active {
+    transform: scale(0.95);
+    transition: transform 0.2s;
+}
+
+.front-side, .back-side {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    background-color: blue;
+}

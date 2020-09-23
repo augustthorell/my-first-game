@@ -25,12 +25,14 @@ h1 {
     width: 400px;
     height: 400px; 
     animation: rotate 4s linear infinite;  
+    transition: 1s;
 }
 .btn:hover {
     cursor: pointer;
+    transform: scale(1.1);
 }
 .btn:hover #start-game {
-    fill: #000;
+    fill: #882D61;
 }
 .btn:hover #polygon-1 {
     fill: #91A436;
