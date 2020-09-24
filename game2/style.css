@@ -1,32 +1,36 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-body {
-    height: 100vh; 
-    background-color: #000;
-    display: flex;
+.go-back {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    background-color: aliceblue;
+    text-align: center;
+    line-height: 100px;
 }
-
 .memory-game {
     width: 640px;
     height: 640px;
     display: flex;
     margin: auto;
     flex-wrap: wrap;
+    perspective: 1000px;
+    transition: 2s;
 }
 
-.memory-c {
+.card {
     position: relative;
     width: calc(25% - 10px);
     height: calc(25% - 10px);
     margin: 5px;
     transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+.card.flip {
+    transform: rotateY(180deg);
 }
 
-.memory-c:active {
+.card:active {
     transform: scale(0.95);
     transition: transform 0.2s;
 }
@@ -37,4 +41,10 @@ body {
     padding: 20px;
     position: absolute;
     background-color: blue;
+    backface-visibility: hidden;
 }
+
+.front-side {
+    transform: rotateY(180deg);
+}
+

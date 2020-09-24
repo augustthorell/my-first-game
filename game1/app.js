@@ -39,13 +39,10 @@ function user(a) {
 // Starts the game and //
 
 function init(a) {
-
     // Get's the value from the user
     user(a);
-
     // Get's the value from the computer //
     computer();
-
     // Calculate who won between the computer and the user //
     calc();
 }
@@ -71,10 +68,10 @@ function calc() {
          displayUserScore.innerHTML = 'Your score : ' + userScore.length;
     }
     if (userScore.length === 5) {
-        document.querySelector('main').style.display = 'none';
+        document.getElementById('main').style.display = 'none';
         document.getElementById('gameWon').style.display = 'block';
     } else if (computerScore.length === 5) {
-        document.querySelector('main').style.display = 'none';
+        document.getElementById('main').style.display = 'none';
         document.getElementById('gameLost').style.display = 'block';
     }
 }

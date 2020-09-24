@@ -4,27 +4,26 @@
     <head>
         <title>August Game site</title>
         <link rel="stylesheet" href="style.css">
-        <script src="app.js"></script>
+        <link rel="stylesheet" href="../overall.css">
     </head>
 
     <body>
         <h1>Beat the stranger in a game of rock, paper, scissor</h1>
-        <h1>Click rock, paper or scissor to play</h1>
-        <h3>First one to 5 point wins</h3>
-        <main class="main">
-            <div class="container">
-                
-                <button class="box box1" id="rock" onclick="init(0)">
-                    <img src="images/rock.svg" class="image" alt="rock">
-                </button>
+        
 
-                <button class="box box2" id="paper" onclick="init(1)">
-                    <img src="images/paper.svg" class="image" alt="paper">
-                </button>
+        <div class="container" id="main">
+            <div class="game1">
+            <button class="box box1" id="rock" onclick="init(0)">
+                <img src="images/rock.svg" class="image" alt="rock">
+            </button>
 
-                <button class="box box3" id="scissor" onclick="init(2)">
-                    <img src="images/scissor.svg" class="image" alt="scissor">
-                </button>
+            <button class="box box2" id="paper" onclick="init(1)">
+                <img src="images/paper.svg" class="image" alt="paper">
+            </button>
+
+            <button class="box box3" id="scissor" onclick="init(2)">
+                <img src="images/scissor.svg" class="image" alt="scissor">
+            </button>
 
             </div>
 
@@ -43,10 +42,12 @@
                 <h2 id="computerScore" class="score">Strangers score: </h2>
 
             </div>
-            
-        </main>
-        <button id="gameLost" class="btn" onclick="reload()">You lost the game, click here to try again</button>
-            <button id="gameWon" class="btn" onclick="moveOn()">You won the game! (yay) Click here to move on</button>
+        </div>
+        
+        <button id="gameLost" class="container" onclick="reload()">You lost the game, click here to try again</button>
+        <button id="gameWon" class="container" onclick="moveOn()">You won the game! (yay) Click here to move on</button>
+
+        <script src="app.js"></script>    
     </body>
 
 </html>
