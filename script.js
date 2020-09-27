@@ -3,7 +3,14 @@ function start() {
     document.getElementById('main').style.display = 'block';
     setTimeout(function() {
         document.getElementById('start-container').style.display = 'none';
-    }, 10000);
+        moveOn();
+    }, 1000);
+}
+
+function moveOn () {
+    setTimeout(function() {
+        window.location.href= '../game1/index.html';
+    }, 1000);
 }
 
  

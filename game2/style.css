@@ -48,3 +48,9 @@
     transform: rotateY(180deg);
 }
 
+#gameWon {
+    display: none;
+}
+#gameLost {
+    display: none;
+}

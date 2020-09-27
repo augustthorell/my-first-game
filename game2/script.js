@@ -1,8 +1,9 @@
-const cards = document.querySelectorAll('.card');
+let cards = document.querySelectorAll('.card');
 
 let flippedCard = false;
 let firstCard, lastCard;
 let stop = false;
+let gameFinished = [];
 
 function flip() {
    if(stop) return;
@@ -23,7 +24,9 @@ function flip() {
 
 function match() {
    if(firstCard.dataset.framework === lastCard.dataset.framework) {
+      gameFinished.push(1);
       disableCard();
+      gameWon();
    } else {
       unflipCards();
    }
@@ -39,7 +42,7 @@ function unflipCards() {
    setTimeout(() => {
       firstCard.classList.remove('flip');
       lastCard.classList.remove('flip');
-
+      
       resetGame();
    }, 1000)
 }
@@ -55,9 +58,17 @@ function resetGame() {
       card.style.order = randomNumber;
    })
 })();
+
 function gameWon() {
-   
+   if (gameFinished.length === 8) {
+      document.querySelector('.container').style.display = 'none';
+      document.getElementById('gameWon').style.display = 'block';
+   }
 }
+
 
 cards.forEach(card => card.addEventListener('click', flip));
 
+function moveOn() {
+   window.location.href= '../game3/index.html';
+}

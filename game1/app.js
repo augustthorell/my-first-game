@@ -67,6 +67,11 @@ function calc() {
          userScore.push(1);
          displayUserScore.innerHTML = 'Your score : ' + userScore.length;
     }
+    gameOver();
+    
+}
+
+function gameOver() {
     if (userScore.length === 5) {
         document.getElementById('main').style.display = 'none';
         document.getElementById('gameWon').style.display = 'block';
