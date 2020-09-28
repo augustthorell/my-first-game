@@ -78,8 +78,8 @@ function attemptNewOrb(frame) {
 			var size = random(20) + 10;
 			var velocity = random(3) + 3;
 
-			var orb = new Ball(random(width), 0, size, color, velocity);
-			orbs.push(orb);
+			var food = new Ball(random(width), 0, size, color, velocity);
+			foods.push(food);
 		}
 	}
 }
@@ -101,6 +101,5 @@ function endGame() {
  * returns a random color
  */
 function randomColor() {
-
-  return color(random(255), random(255), random(255));
+  return color(rgba(163, 218, 71));
 }

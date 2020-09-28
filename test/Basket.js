@@ -34,3 +34,48 @@ Basket.prototype.draw = function() {
 	
 };
 
+
+
+
+
+
+
+function falling() {
+    for(let i = foods.length - 1; i >= 0; i--) {
+        if(foods[i].onScreen) {
+            foods[i].update();
+            foods[i].draw();
+            if(foods[i].caughtBy(basket)) {
+                score += 1;
+                basket.catch(food[i]);
+                foods.splice(i, 1);
+                if(foods[i].caughtBy(basket)) {
+                    score += 1;
+                    basket.catch(food[i]);
+                    foods.splice(i, 1);
+                }
+            } 
+        } else {
+           
+        }
+    }
+}
+
+function attemptNewFood(frame) {
+
+	if (frame % 20 === 0) { // every 1/3 second
+
+		var chance = map(score, 0, 100, 0.25, 0.99);
+		if (random() < chance) {
+			// push to the orbs array
+
+			/* build Ball */
+			var color = randomColor();
+			var size = random(20) + 10;
+			var velocity = random(3) + 3;
+
+			var foods = new Ball(random(width), 0, size, color, velocity);
+			foods.push(food);
+		}
+	}
+}

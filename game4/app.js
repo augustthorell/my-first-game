@@ -1,9 +1,9 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-let size = 25;
+let size = 100;
 
 
-
+let randomX = Math.floor(Math.random() * canvas.width);
 
 let score = 0;
 
@@ -14,11 +14,8 @@ let basket = {
     speed: 20
 }
 // Randomize the falling position //
-let food = [];
 
-
-
-
+let fallingFood = [];
 
 
 
@@ -26,6 +23,7 @@ let food = [];
 document.addEventListener('keydown', direction);
 
 function direction(event) {
+    console.log(score);
     if(event.keyCode === 37) {
         basket.x -= basket.speed;
         if(basket.x < 0) {
@@ -34,8 +32,8 @@ function direction(event) {
     }
     if(event.keyCode === 39) {
         basket.x += basket.speed;
-        if(basket.x > 600) {
-            basket.x = 600;
+        if(basket.x > 580) {
+            basket.x = 580;
         }
     }
 }
@@ -49,71 +47,66 @@ function direction(event) {
 
 // Game over function //
 function draw() {
+    let a = basket.x + 120
+    let b = fallingFood.x + 70
     // Draw background //
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, 700, 700)
 
-    // Draw basket //
-    ctx.fillStyle = 'green';
-    ctx.fillRect(basket.x, basket.y, 100, 25)
-    ctx.fillRect(basket.x, basket.y - 70, 10, 70)
-    ctx.fillRect(basket.x + 90, basket.y - 70, 10, 70);
-
-    // Draw droped items //
-    ctx.fillStyle = 'red';
-    ctx.fillRect(food.x, food.y, size, size);
-    
-    falling();
-    attemptNewFood();
   
-}
-
-function falling() {
-    for(let i = food.length - 1; i >= 0; i--) {
-        if(food[i].onScreen) {
-            food[i].update();
-            food[i].draw();
-            if(food[i].caughtBy(basket)) {
-                score += 1;
-                basket.catch(food[i]);
-                food.splice(i, 1);
-                if(food[i].caughtBy(basket)) {
-                    score += 1;
-                    basket.catch(food[i]);
-                    food.splice(i, 1);
-                }
-            } 
-        } else {
-            endGame();
+    
+    // Draw droped items //
+    for (let i = 0; i >= 0 ; i--)
+        {
+        ctx.drawImage(fallingFood[i].image, fallingFood[i].x, fallingFood[i].y, 70, 70); //The rain drop
+        fallingFood[i].y += fallingFood[i].speed; //Set the falling speed
+        if (fallingFood[i].y > 650) {  //Repeat the raindrop when it falls out of view
+        fallingFood[i].y = -70 //Account for the image size
+        fallingFood[i].x = 0;    //Make it appear randomly along the width    
+        
+        if(fallingFood[i].y < 600 && fallingFood[i].x == basket.x) {
+            console.log('test');
+        }
         }
     }
+    // Draw basket //
+    ctx.fillStyle = 'green';
+    ctx.fillRect(basket.x, basket.y, 120, 25)
+    ctx.fillRect(basket.x, basket.y - 70, 10, 70)
+    ctx.fillRect(basket.x + 110, basket.y - 70, 10, 70);
+    
+
 }
 
-function attemptNewFood(frame) {
+function setup() {
 
-	if (frame % 20 === 0) { // every 1/3 second
+        setInterval(draw, 50);
 
-		var chance = map(score, 0, 100, 0.25, 0.99);
-		if (random() < chance) {
-			// push to the orbs array
 
-			/* build Ball */
-			var color = randomColor();
-			var size = random(20) + 10;
-			var velocity = random(3) + 3;
+        for (var i = 0; i >= 0; i--) {
+            var fallingFd = new Object();
+            fallingFd["image"] =  new Image();
+            fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
+            fallingFd["x"] = 0;
+            fallingFd["y"] = -25;
+            fallingFd["speed"] = 1.5 + Math.random() * 5;
+            fallingFood.push(fallingFd);
+            }
+            if(fallingFd.y === 700) {
+                console.log('test');
+            }
+            
+        }
 
-			var food = new Ball(random(width), 0, size, color, velocity);
-			food.push(food);
-		}
-	}
-}
 
-function endGame() {
-noLoop();
-  textSize(60);
-  noStroke();
-  fill(255);
-  text("Game Over!", width / 2, height / 2);
-}
+ 
+setup()
 
-let game = setInterval(draw, 10);
+
+
+
+
+
+
+
+
