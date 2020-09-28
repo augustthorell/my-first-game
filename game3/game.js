@@ -1,11 +1,11 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const box = 25;
-let width = 700;
+
 const canvasSize = 27;
 
 // Score //
-let score = 0;
+let score = 10;
 
 // Load snake starting position //
 let snake = [];
@@ -31,13 +31,14 @@ function direction(event) {
         dir = 'down';
 }
 
-// set thelocation of our food //
+// Set the location of the food //
 let food = {
     x: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box,
     y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box
 }
 
 // Draw function //
+
 function draw() {
     // Draw the background //
     ctx.fillStyle = 'lightgreen';
@@ -65,7 +66,7 @@ function draw() {
 
     // if the snace eats the food //
     if(snakeX == food.x && snakeY == food.y) {
-        score += 1;
+        score -= 1;
         food = {
             x: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box,
             y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box
@@ -100,26 +101,30 @@ function draw() {
     }
 
     snake.unshift(newHead);
+
+    
     // Draw in food //
     ctx.fillStyle = 'red';
     ctx.fillRect(food.x, food.y, box, box)
 
     // Draw score //
     ctx.fillStyle = '#fff';
-    ctx.font = '24px Changa one';
+    ctx.font = '20px Changa one';
     ctx.clearRect(0, 0, 50, 25);
-    ctx.fillText(score, box, 0.8 * box);
+    ctx.fillText(score, 25, 20);
+    ctx.fillText('apples left', 50, 20);
+    
     gameWon();
 
     function gameWon() {
-        if(score > 10) {
+        if(score <= 0) {
             clearInterval(game);
             ctx.fillStyle = '#000';
             ctx.font = '50px Changa one';
             ctx.clearRect(0, 0, 50, 25);
-            ctx.fillText('You won the game', box, 350);
+            ctx.fillText('You won the game', canvas.width/4, canvas.height/2);
             clearInterval(game);
         }
     }
 }
-let game = setInterval(draw, 100);
+let game = setInterval(draw, 80);
