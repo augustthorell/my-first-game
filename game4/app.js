@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 let size = 100;
 
 
-let randomX = Math.floor(Math.random() * canvas.width);
+
 
 let score = 0;
 
@@ -23,7 +23,7 @@ let fallingFood = [];
 document.addEventListener('keydown', direction);
 
 function direction(event) {
-    console.log(score);
+    
     if(event.keyCode === 37) {
         basket.x -= basket.speed;
         if(basket.x < 0) {
@@ -39,34 +39,28 @@ function direction(event) {
 }
 
 
-// Create falling objects //
-
-
-
 // Keeping the score //
 
 // Game over function //
 function draw() {
-    let a = basket.x + 120
-    let b = fallingFood.x + 70
+
     // Draw background //
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, 700, 700)
 
-  
-    
     // Draw droped items //
-    for (let i = 0; i >= 0 ; i--)
-        {
+    for (let i = 0; i >= 0 ; i--) {
         ctx.drawImage(fallingFood[i].image, fallingFood[i].x, fallingFood[i].y, 70, 70); //The rain drop
-        fallingFood[i].y += fallingFood[i].speed; //Set the falling speed
-        if (fallingFood[i].y > 650) {  //Repeat the raindrop when it falls out of view
-        fallingFood[i].y = -70 //Account for the image size
-        fallingFood[i].x = 0;    //Make it appear randomly along the width    
         
-        if(fallingFood[i].y < 600 && fallingFood[i].x == basket.x) {
-            console.log('test');
+        fallingFood[i].y += fallingFood[i].speed; //Set the falling speed
+        if (fallingFood[i].y > 695) {  //Repeat the raindrop when it falls out of view
+        fallingFood[i].y = -70 //Account for the image size
+        fallingFood[i].x = Math.floor(Math.random() * 600); //Make it appear randomly along the width
         }
+
+        if(fallingFood[i].y > 692 && fallingFood[i].x > (basket.x - 10) && (fallingFood[i].x + 65) < (basket.x + 130)) {
+            score += 1;
+            console.log(score);
         }
     }
     // Draw basket //
@@ -80,26 +74,23 @@ function draw() {
 
 function setup() {
 
-        setInterval(draw, 50);
+    
 
-
-        for (var i = 0; i >= 0; i--) {
-            var fallingFd = new Object();
-            fallingFd["image"] =  new Image();
-            fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
-            fallingFd["x"] = 0;
-            fallingFd["y"] = -25;
-            fallingFd["speed"] = 1.5 + Math.random() * 5;
-            fallingFood.push(fallingFd);
-            }
-            if(fallingFd.y === 700) {
-                console.log('test');
-            }
-            
+    // Randomizes the next food-item
+    for (var i = 0; i >= 0; i--) {
+        var fallingFd = new Object();
+        fallingFd["image"] =  new Image();
+        
+        fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
+        fallingFd['x'] = Math.floor(Math.random() * 600);
+        fallingFd['y'] = -70;
+        fallingFd["speed"] = 1.5 + (Math.random() * 5);
+        fallingFood.push(fallingFd);
         }
+}
 
 
- 
+ let game = setInterval(draw, 10);
 setup()
 
 
