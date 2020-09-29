@@ -1,10 +1,7 @@
-body {
-    opacity: 0;
-    transition: opacity 2s;
-}
 .container {
     display: grid;
     grid-template-columns: 1fr;
+    width: 700%;
 }
 .game1 {
     grid-template-columns: 1fr 1fr 1fr;

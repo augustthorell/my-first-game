@@ -6,6 +6,7 @@ let size = 100;
 
 
 let score = 0;
+let losing = 0;
 
 // Load basket starting position //
 let basket = {
@@ -61,6 +62,8 @@ function draw() {
         if(fallingFood[i].y > 692 && fallingFood[i].x > (basket.x - 10) && (fallingFood[i].x + 65) < (basket.x + 130)) {
             score += 1;
             console.log(score);
+        } else {
+            losing += 1;
         }
     }
     // Draw basket //
@@ -80,13 +83,18 @@ function setup() {
     for (var i = 0; i >= 0; i--) {
         var fallingFd = new Object();
         fallingFd["image"] =  new Image();
-        
         fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
         fallingFd['x'] = Math.floor(Math.random() * 600);
         fallingFd['y'] = -70;
         fallingFd["speed"] = 1.5 + (Math.random() * 5);
         fallingFood.push(fallingFd);
         }
+}
+
+function endGame() {
+    if(score >= 10) {
+        
+    }
 }
 
 
