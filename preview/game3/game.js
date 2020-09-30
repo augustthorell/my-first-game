@@ -1,6 +1,7 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 const box = 25;
+
 const canvasSize = 27;
 
 // Score //
@@ -80,7 +81,7 @@ function draw() {
     };
 
     
-    displayScore();
+
     // Check collision //
 
     function collision(head, array) {
@@ -103,6 +104,12 @@ function draw() {
     ctx.fillStyle = 'red';
     ctx.fillRect(food.x, food.y, box, box)
 
+    // Draw score //
+    ctx.fillStyle = '#fff';
+    ctx.font = '20px Changa one';
+    ctx.clearRect(0, 0, 50, 25);
+    ctx.fillText(score, 25, 20);
+    ctx.fillText('apples left', 50, 20);
     
     gameWon();
 
@@ -112,9 +119,5 @@ function draw() {
         }
     }
 }
-
-function displayScore() {
-    document.getElementById("score").innerHTML =  score + ' apples left to catch';
- }
 
 let game = setInterval(draw, 80);

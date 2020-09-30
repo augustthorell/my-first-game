@@ -1,0 +1,54 @@
+.go-back {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    background-color: aliceblue;
+    text-align: center;
+    line-height: 100px;
+}
+.memory-game {
+    width: 700px;
+    height: 700px;
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    transition: 2s;
+}
+
+.card {
+    position: relative;
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.card:active {
+    transform: scale(0.95);
+    transition: transform 0.2s;
+}
+
+.front-side, .back-side {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    background-color: blue;
+    backface-visibility: hidden;
+}
+
+.front-side {
+    transform: rotateY(180deg);
+}
+#gameWon {
+    display: none;
+}
+#gameLost {
+    display: none;
+}

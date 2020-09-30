@@ -5,7 +5,7 @@
 }
 
 #canvas {
-    background-color: rgb(61, 46, 46);
+    background-color: rgb(255, 255, 255);
 }
 #gameWon {
     display: none;

@@ -1,0 +1,62 @@
+#start-container {
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.btn {
+    width: 100%;
+    height: autp; 
+    animation: rotate 4s linear infinite;  
+    transition: 1s;
+}
+.btn:hover {
+    cursor: pointer;
+
+}
+.btn:hover #start-game {
+    fill: #882D61;
+}
+.btn:hover #polygon-1 {
+    fill: #91A436;
+}
+.btn:hover #polygon-2 {
+    fill: #882D61;
+}
+
+#polygon-2 {
+    animation: rotate2 10s infinite linear;
+    transform-origin: center;
+}
+@keyframes rotate2 {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(360deg);
+    }
+}
+#polygon-1 {
+    animation: rotate1 10s infinite linear;
+    transform-origin: center;
+}
+@keyframes rotate1 {
+    from {
+        transform: rotate(0deg);
+    } to {
+        transform: rotate(-360deg);
+    }
+}
+#main {
+    position: absolute;;
+    top: 15%;
+    left: 0;
+    display: none;
+    background-color: #fff;
+    width: 100%;
+    height: 700px;
+    color: #fff;
+
+}
+

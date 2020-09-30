@@ -5,7 +5,7 @@
 }
 
 #canvas {
-    background-color: rgb(61, 46, 46);
+    background-color: rgb(190, 142, 93);
 }
 #gameWon {
     display: none;
@@ -13,3 +13,5 @@
 #gameLost {
     display: none;
 }
+
+

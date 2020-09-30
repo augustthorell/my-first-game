@@ -74,9 +74,8 @@ function draw() {
     ctx.fillRect(basket.x, basket.y - 70, 10, 70)
     ctx.fillRect(basket.x + 110, basket.y - 70, 10, 70);
     
-    displayScore();
-}
 
+}
 
 function setup() {
 
@@ -98,20 +97,14 @@ function endGame() {
     if(score >= 10) {
         clearInterval(game);
         gameOver(1);
-    } else if(losing >= 3) {
+    } else if(losing >= 10) {
         clearInterval(game);
         gameOver(2);
     }
 }
 
-function displayScore() {
-    document.getElementById("score").innerHTML =  'You have catched ' + score + ' burgers';
- }
-
 let game = setInterval(draw, 10);
-setup();
-
-
+setup()
 
 
 

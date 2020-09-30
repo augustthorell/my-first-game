@@ -10,8 +10,6 @@ function moveOn(a) {
         window.location.href= '../game3/index.html';
     } else if(a === 4) {
         window.location.href= '../game4/index.html';
-    } else if(a === 5) {
-        window.location.href= '../endsite/index.html';
     }
     
 }
