@@ -74,5 +74,5 @@ function finished() {
    }
 }
 function displayScore() {
-   document.getElementById("score").innerHTML = 'Your hame matched ' + gameFinished + ' cards';
+   document.getElementById("score").innerHTML = 'Your hame matched ' + gameFinished + ' pair of cards';
 }

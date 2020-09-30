@@ -117,4 +117,4 @@ function displayScore() {
     document.getElementById("score").innerHTML =  score + ' apples left to catch';
  }
 
-let game = setInterval(draw, 80);
+let game = setInterval(draw, 90);

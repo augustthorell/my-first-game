@@ -6,6 +6,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
 }
 #start-container {
     display: flex;
@@ -56,46 +57,8 @@
         transform: rotate(-360deg);
     }
 }
-#main {
-    position: absolute;;
-    top: 15%;
-    left: 0;
-    display: none;
-    background-color: #fff;
-    width: 100%;
-    height: 700px;
-    color: #fff;
-    animation: initiate 2s forwards;
 
-}
-
-@keyframes initiate {
-    0% { 
-        transform: scale(0);
-        opacity: 0;
-    }
-    30% { 
-        transform: scale(0);
-        opacity: 0;
-    } 
-    100% { 
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-.end {
-    animation: end 2s forwards;
-}
-@keyframes end {
-    from { 
-        transform: scale(1);
-        opacity: 1;
-    }
-    to { 
-        transform: scale(0);
-        opacity: 0;
-    }
-}
 p {
     color: #fff;
+    text-align: center;
 }

@@ -51,10 +51,10 @@ img {
     text-align: center;
 }
 #userInput {
-    transform: rotate(90deg);
+    transform: rotate(90deg) scaleX(-1);
 }
 #computer {
-    transform: rotate(-90deg) scaleX(-1);
+    transform: rotate(-90deg);
 }
 .btn {
     width: 100%;

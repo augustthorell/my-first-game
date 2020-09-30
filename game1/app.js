@@ -10,13 +10,13 @@ function computer() {
     let randomNumber = Math.floor(Math.random() * 3);
     let computer = document.getElementById('computer');
     if (randomNumber === 0) {
-        computer.innerHTML = '<img src=images/rock.svg>';
+        computer.innerHTML = '<img src=images/rock.png>';
         computerData.unshift(0);
     } else if (randomNumber === 1) {
-        computer.innerHTML = '<img src=images/paper.svg>';
+        computer.innerHTML = '<img src=images/hand.png>';
         computerData.unshift(1);
     } else if (randomNumber === 2) {
-        computer.innerHTML = '<img src=images/scissor.svg>';
+        computer.innerHTML = '<img src=images/scissor.png>';
         computerData.unshift(2);
     }
 }
@@ -25,13 +25,13 @@ function computer() {
 
 function user(a) {
     if (a == 0) {
-        document.getElementById('userInput').innerHTML = '<img src=images/rock.svg>';
+        document.getElementById('userInput').innerHTML = '<img src=images/rock.png>';
         userData.unshift(0);
     } else if (a == 1) {
-        document.getElementById('userInput').innerHTML = '<img src=images/paper.svg>';
+        document.getElementById('userInput').innerHTML = '<img src=images/hand.png>';
         userData.unshift(1);
     } else if (a == 2) {
-        document.getElementById('userInput').innerHTML = '<img src=images/scissor.svg>';
+        document.getElementById('userInput').innerHTML = '<img src=images/scissor.png>';
         userData.unshift(2);
     }
 }

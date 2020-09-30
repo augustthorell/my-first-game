@@ -89,7 +89,7 @@ function setup() {
         fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
         fallingFd['x'] = Math.floor(Math.random() * 600);
         fallingFd['y'] = -70;
-        fallingFd["speed"] = 2 + (Math.random() * 3);
+        fallingFd["speed"] = 4;
         fallingFood.push(fallingFd);
         }
 }
