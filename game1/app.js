@@ -2,8 +2,8 @@
 
 let userData = [];
 let computerData = [];
-let userScore = [];
-let computerScore = [];
+let userScore = 0;
+let computerScore = 0;
 
 // Changes the image for the computer //
 function computer() {
@@ -60,22 +60,22 @@ function calc() {
         result.innerHTML = "It's a Draw";
     } else if ((user == 0 && computer == 1) || (user == 1 && computer == 2) || (user == 2 && computer == 0)) { 
         result.innerHTML = "Point for the computer";
-        computerScore += [1];
-        displayComputerScore.innerHTML = 'Computer score : ' + computerScore.length;
+        computerScore += 1;
+        displayComputerScore.innerHTML = 'Computer score : ' + computerScore;
     } else if ((user == 1 && computer == 0) || (user == 2 && computer == 1) || (user == 0 && computer == 2)) {
          result.innerHTML = "Point for you";
-         userScore.push(1);
-         displayUserScore.innerHTML = 'Your score : ' + userScore.length;
+         userScore += 1;
+         displayUserScore.innerHTML = 'Your score : ' + userScore;
     }
     gameOver();
     
 }
 
 function gameOver() {
-    if (userScore.length === 5) {
+    if (userScore === 5) {
         document.getElementById('main').style.display = 'none';
         document.getElementById('gameWon').style.display = 'block';
-    } else if (computerScore.length === 5) {
+    } else if (computerScore === 5) {
         document.getElementById('main').style.display = 'none';
         document.getElementById('gameLost').style.display = 'block';
     }

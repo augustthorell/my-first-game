@@ -93,10 +93,7 @@ function draw() {
         return false;
     }
     if(snakeX < box || snakeY < box || snakeX > (canvasSize - 1) * box || snakeY > (canvasSize -1) * box || collision(newHead, snake)) {
-        ctx.fillStyle = '#000';
-        ctx.font = '50px Changa one';
-        ctx.clearRect(0, 0, 50, 25);
-        ctx.fillText('Game over', box, 350);
+        gameOver(2);
         clearInterval(game);
     }
 
@@ -118,13 +115,9 @@ function draw() {
 
     function gameWon() {
         if(score <= 0) {
-            clearInterval(game);
-            ctx.fillStyle = '#000';
-            ctx.font = '50px Changa one';
-            ctx.clearRect(0, 0, 50, 25);
-            ctx.fillText('You won the game', canvas.width/4, canvas.height/2);
-            clearInterval(game);
+            gameOver(1)
         }
     }
 }
+
 let game = setInterval(draw, 80);

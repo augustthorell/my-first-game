@@ -46,7 +46,6 @@
 .front-side {
     transform: rotateY(180deg);
 }
-
 #gameWon {
     display: none;
 }

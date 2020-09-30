@@ -61,10 +61,12 @@ function draw() {
 
         if(fallingFood[i].y > 692 && fallingFood[i].x > (basket.x - 10) && (fallingFood[i].x + 65) < (basket.x + 130)) {
             score += 1;
-            console.log(score);
-        } else {
+            console.log('winning ' + score);
+        } else if(fallingFood[i].y > 692 && (fallingFood[i].x > (basket.x - 10) || (fallingFood[i].x + 65) < (basket.x + 130))) {
             losing += 1;
+            console.log('Losing ' + losing);
         }
+        endGame();
     }
     // Draw basket //
     ctx.fillStyle = 'green';
@@ -86,19 +88,22 @@ function setup() {
         fallingFd.image.src = 'https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/apple/237/hamburger_1f354.png';
         fallingFd['x'] = Math.floor(Math.random() * 600);
         fallingFd['y'] = -70;
-        fallingFd["speed"] = 1.5 + (Math.random() * 5);
+        fallingFd["speed"] = 2 + (Math.random() * 3);
         fallingFood.push(fallingFd);
         }
 }
 
 function endGame() {
     if(score >= 10) {
-        
+        clearInterval(game);
+        gameOver(1);
+    } else if(losing >= 10) {
+        clearInterval(game);
+        gameOver(2);
     }
 }
 
-
- let game = setInterval(draw, 10);
+let game = setInterval(draw, 10);
 setup()
 
 

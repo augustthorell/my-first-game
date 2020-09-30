@@ -3,7 +3,7 @@ let cards = document.querySelectorAll('.card');
 let flippedCard = false;
 let firstCard, lastCard;
 let stop = false;
-let gameFinished = [];
+let gameFinished = 0;
 
 function flip() {
    if(stop) return;
@@ -24,9 +24,9 @@ function flip() {
 
 function match() {
    if(firstCard.dataset.framework === lastCard.dataset.framework) {
-      gameFinished.push(1);
+      gameFinished += 1;
       disableCard();
-      gameWon();
+      gameWon(1);
    } else {
       unflipCards();
    }
@@ -59,12 +59,7 @@ function resetGame() {
    })
 })();
 
-function gameWon() {
-   if (gameFinished.length === 8) {
-      document.querySelector('.container').style.display = 'none';
-      document.getElementById('gameWon').style.display = 'block';
-   }
-}
+
 
 
 cards.forEach(card => card.addEventListener('click', flip));

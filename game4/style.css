@@ -7,5 +7,11 @@
 #canvas {
     background-color: rgb(190, 142, 93);
 }
+#gameWon {
+    display: none;
+}
+#gameLost {
+    display: none;
+}
 
 

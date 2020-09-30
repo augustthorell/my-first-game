@@ -13,3 +13,13 @@ function moveOn(a) {
     }
     
 }
+
+function gameOver(a) {
+    if (a === 1) {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('gameWon').style.display = 'block';
+    } else if (a === 2) {
+        document.getElementById('main').style.display = 'none';
+        document.getElementById('gameLost').style.display = 'block';
+    }
+}

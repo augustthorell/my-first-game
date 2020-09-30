@@ -12,7 +12,7 @@
        
         <h1>The world is turning to shit and burgers are falling from the sky.<br>Catch 10 items before the time runs out</h1>
 
-        <div class="container">
+        <div class="container" id="main">
            
             <div class="wrapper">
                 <canvas id="canvas" height="700" width="700"></canvas>
@@ -22,8 +22,12 @@
 
 
         </div>
-        
-        <script src="app.js"></script>    
+
+        <button id="gameLost" class="container" onclick="reload()">You lost the game, click here to try again</button>
+        <button id="gameWon" class="container" onclick="moveOn()">You won the game! (yay) Click here to move on</button>
+
+        <script src="app.js"></script>
+        <script src="../overall.js"></script>     
     </body>
 
 </html>
