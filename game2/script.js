@@ -26,7 +26,8 @@ function match() {
    if(firstCard.dataset.framework === lastCard.dataset.framework) {
       gameFinished += 1;
       disableCard();
-      gameWon(1);
+      finished();
+      displayScore();
    } else {
       unflipCards();
    }
@@ -66,4 +67,12 @@ cards.forEach(card => card.addEventListener('click', flip));
 
 function moveOn() {
    window.location.href= '../game3/index.html';
+}
+function finished() {
+   if(gameFinished === 8) {
+      gameOver(1);
+   }
+}
+function displayScore() {
+   document.getElementById("score").innerHTML = 'Your hame matched ' + gameFinished + ' cards';
 }

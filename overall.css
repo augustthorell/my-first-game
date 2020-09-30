@@ -26,3 +26,16 @@ h1 {
     left: 50%;
     transform: translate(-50%, +10%);
 }
+#gameWon {
+    display: none;
+}
+#gameLost {
+    display: none;
+}
+#score {
+    position: absolute;
+    top: 40%;
+    left: calc(50% + 500px);
+    transform: translate(-50%, -50%);
+    color: #fff;
+}

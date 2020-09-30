@@ -67,24 +67,19 @@ function calc() {
          userScore += 1;
          displayUserScore.innerHTML = 'Your score : ' + userScore;
     }
-    gameOver();
+    checkWinner();
     
 }
 
-function gameOver() {
+function checkWinner() {
     if (userScore === 5) {
-        document.getElementById('main').style.display = 'none';
-        document.getElementById('gameWon').style.display = 'block';
+        gameOver(1);
+        
     } else if (computerScore === 5) {
-        document.getElementById('main').style.display = 'none';
-        document.getElementById('gameLost').style.display = 'block';
+       gameOver(2);
     }
 }
 
-// Depending on if you won or not, the functions will send you to different places //
-function reload() {
-    window.location.reload();
-}
-function moveOn() {
-    window.location.href= '../game2/index.html';
-}
+
+
+
