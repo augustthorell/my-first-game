@@ -51,12 +51,12 @@ function draw() {
 
     // Draw droped items //
     for (let i = 0; i >= 0 ; i--) {
-        ctx.drawImage(fallingFood[i].image, fallingFood[i].x, fallingFood[i].y, 70, 70); //The rain drop
+        ctx.drawImage(fallingFood[i].image, fallingFood[i].x, fallingFood[i].y, 70, 70); 
         
-        fallingFood[i].y += fallingFood[i].speed; //Set the falling speed
-        if (fallingFood[i].y > 695) {  //Repeat the raindrop when it falls out of view
-        fallingFood[i].y = -70 //Account for the image size
-        fallingFood[i].x = Math.floor(Math.random() * 600); //Make it appear randomly along the width
+        fallingFood[i].y += fallingFood[i].speed; 
+        if (fallingFood[i].y > 695) {  
+        fallingFood[i].y = -70 
+        fallingFood[i].x = Math.floor(Math.random() * 600); 
         }
 
         if(fallingFood[i].y > 692 && fallingFood[i].x > (basket.x - 10) && (fallingFood[i].x + 65) < (basket.x + 130)) {
